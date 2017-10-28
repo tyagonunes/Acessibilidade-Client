@@ -44,39 +44,39 @@
                                     
                                     <div id="acessibilidade">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="acesso" value="1">Rampa de acesso e calçada rebaixada</label>
+                                            <label><input type="checkbox" class="acesso" value="Rampa de acesso e calçada rebaixada">Rampa de acesso e calçada rebaixada</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="acesso" value="2">Banheiro Adaptado</label>
+                                            <label><input type="checkbox" class="acesso" value="Banheiro Adaptado">Banheiro Adaptado</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="acesso" value="3">Vagas de estacionamento para deficientes</label>
+                                            <label><input type="checkbox" class="acesso" value="Vagas de estacionamento para deficientes">Vagas de estacionamento para deficientes</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="acesso" value="4">Pisos táteis (pisos especiais percebíveis pelo tato) e de alerta para os portadores de deficiência visual</label>
+                                            <label><input type="checkbox" class="acesso" value="Pisos táteis (pisos especiais percebíveis pelo tato) e de alerta para os portadores de deficiência visual">Pisos táteis (pisos especiais percebíveis pelo tato) e de alerta para os portadores de deficiência visual</label>
                                         </div>
                                     </div>
 
 
                                     <div id="inacessibilidade">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="inacesso" value="8">Dificuldade de acesso na entrada para deficientes físicos</label>
+                                            <label><input type="checkbox" class="inacesso" value="Dificuldade de acesso na entrada para deficientes físicos">Dificuldade de acesso na entrada para deficientes físicos</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="inacesso" value="7">Não possui adaptações</label>
+                                            <label><input type="checkbox" class="inacesso" value="Não possui adaptações">Não possui adaptações</label>
                                         </div>
                                        
                                     </div>
                                     
                                     <div id="instituicao">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="instituicao" value="10">Apoio a deficientes Fisicos motores</label>
+                                            <label><input type="checkbox" class="instituicao" value="Apoio a deficientes Fisicos motores">Apoio a deficientes Fisicos motores</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="instituicao" value="11">Apoio a deficientes visuais</label>
+                                            <label><input type="checkbox" class="instituicao" value="Apoio a deficientes visuais">Apoio a deficientes visuais</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" class="instituicao" value="12">Apoio a deficientes auditivos</label>
+                                            <label><input type="checkbox" class="instituicao" value="Apoio a deficientes auditivos">Apoio a deficientes auditivos</label>
                                         </div>
                                     </div>
 
