@@ -10,7 +10,7 @@
     <title>My map</title>
 </head>
 <body>
-   <!--  <header id="header">
+    <header id="header">
        <nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
@@ -26,7 +26,7 @@
 		    <div class="collapse navbar-collapse" id="menu">
 		      <ul class="nav navbar-nav">
 		        <li><a href="#section-form">Contribua</a></li>
-		        <li><a href="#">Sobre</a></li>
+		        <li><a id="pin" href="#">Sobre</a></li>
 		      </ul>
 		     
 		      <ul class="nav navbar-nav navbar-right">
@@ -35,4 +35,4 @@
 		    </div>
 		  </div>
 		</nav>
-    </header> -->
+    </header>

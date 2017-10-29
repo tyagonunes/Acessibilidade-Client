@@ -1,6 +1,12 @@
 var map;
+var modePin = false;
 
-function initMap() {
+// $('#pin').on('click', function() {
+//     initMap(true);
+// })
+
+function initMap(modePin) {
+    
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -3.786407, lng: -38.503781 },
         zoom: 12
@@ -80,11 +86,15 @@ function initMap() {
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    /* This event listener calls addMarker() when the map is clicked.
-    google.maps.event.addListener(map, 'click', function (e) {
-        placeMarker(e.latLng, map);
-        console.log(e);
-    });*/
+     //This event listener calls addMarker() when the map is clicked.
+    
+     if (modePin) {
+
+        google.maps.event.addListener(map, 'click', function (e) {
+            placeMarker(e.latLng, map);
+            console.log(e.latLng.lat());
+        });
+    }
 
     function placeMarker(position, map) {
         var marker = new google.maps.Marker({
