@@ -1,55 +1,63 @@
-var express = require('express');
+var app = require('./config/app_config');
 
-var app = express();
+var db =  require('./config/db_config');
 
-var bodyParser = require('body-parser');
+var Local = require('./models/local');
 
-var db_string = 'mongodb://127.0.0.1/mapnode';
+var localController = require('./controllers/localController');
 
-var mongoose = require('mongoose').connect(db_string);
+// var express = require('express');
 
-var db = mongoose.connection;
+// var app = express();
 
-db.on('error', console.error.bind(console, "Erro ao conectar no banco"));
-db.once('open', function(){
-	var localSchema = mongoose.Schema({
-		nome: String,
-		latitude: Number,
-		longitude: Number,
-		tipo: String,
-		descricao: String,
-		acessos: [{type: String}]
+// var bodyParser = require('body-parser');
 
-	});
-	Local = mongoose.model('Local', localSchema);
-});
+// var db_string = 'mongodb://127.0.0.1/mapnode';
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// var mongoose = require('mongoose').connect(db_string);
 
-app.listen(5000);
+// var db = mongoose.connection;
 
+// db.on('error', console.error.bind(console, "Erro ao conectar no banco"));
+// db.once('open', function(){
+// 	var localSchema = mongoose.Schema({
+// 		nome: String,
+// 		latitude: Number,
+// 		longitude: Number,
+// 		tipo: String,
+// 		descricao: String,
+// 		acessos: [{type: String}]
 
-app.all('/locais', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+// 	});
+// 	Local = mongoose.model('Local', localSchema);
+// });
 
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(function(req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type, Authorization");
+//   next();
+// });
+
+// app.listen(5000);
 
 // LISTAR LOCAIS
 
+app.get('/', function(req, res) {
+	res.end('Bem vindo a API');	
+});
+
+
+
 app.get('/locais', function(req, res) {
 
-	Local.find({}, function(error, locais){
-		if(error) {
-			res.json({error: 'Não foi possivel salvar usuário'});
-		}
-		else {
-			resp = {success: true, data:locais, message:'Lista de locais'};
-			res.json(resp)
-		}
+	localController.list(function(resp){
+		res.json(resp);
 	});
+
 });
 
 
@@ -80,25 +88,10 @@ app.post('/locais', function(req, res){
 	var descricao = req.body.Descricao;
 	var acessos = req.body.Acessos;
 
+	localController.save(nome, latitude, longitude, tipo, descricao, acessos, function (resp) {
+		res.json(resp);
+	})
 
-	new Local({
-		'nome': nome,
-		'latitude': latitude,
-		'longitude': longitude,
-		'tipo': tipo,
-		'descricao': descricao,
-		'acessos': acessos
-
-	}).save(function(error, local) {
-
-		if(error) {
-			res.json({error: 'Não foi possivel salvar local'});
-		}
-		else {
-			resp = {success: true, data:[], message:'Local cadastrado com sucesso'};
-			res.json(resp)
-		}
-	});
 });
 
 
@@ -106,18 +99,11 @@ app.post('/locais', function(req, res){
 
 app.delete('/locais/:id', function(req, res){
 
-	var id = req.param.id;
+	var id = req.params['id'];
+	
 
-	Local.findById(id, function(error, local){
-		if(error) {
-			res.json({error: 'Não foi possivel deletar local'});
-		}
-		else {
-			local.remove(function(error){
-				if (!error) {
-					res.json({response: 'Usuário excluido com sucesso'});
-				}
-			})
-		}
-	});
+	localController.delete(id, function (resp) {
+		res.json(resp);
+	})
+
 });

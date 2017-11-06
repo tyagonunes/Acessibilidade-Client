@@ -148,3 +148,20 @@ $( "#select-tipo" ).change(function() {
     }
 });
 
+
+
+function deletePLace() {
+
+    var id = $()
+    
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:5000/locais?id='+id
+    })
+    .done(function (response) {
+        console.log(response);
+    })
+    .fail(function (xhr, textStatus, errorThrown) {
+        alert("Erro de conexão", xhr.responseText);
+    });
+}

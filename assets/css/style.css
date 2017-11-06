@@ -1,31 +1,130 @@
-#map {
-    height: 700px;
-    width: 100%;
+body {
+  font-family: 'Roboto', arial, sans-serif;
+  overflow-x: hidden;
+  font-weight: normal;
+  font-size: 16px;
 }
-
-#location-input {
-    background-color: #fff;
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin-left: 12px;
-    padding: 0 11px 0 13px;
-    text-overflow: ellipsis;
-    width: 300px;
+#header .navbar {
+  background-color: #931621;
+  margin-bottom: 0;
+  border-radius: 0;
+  border: none;
 }
-
+#header .navbar .navbar-header .navbar-brand {
+  padding: 0;
+  margin: 10px;
+}
+#header .navbar #menu {
+  margin-top: 5px;
+}
+#header .navbar #menu ul li a {
+  color: #fff;
+}
+#map-content {
+  height: 650px;
+}
+#map-content #map {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+#map-content #location-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+  border: 2px solid #212121;
+  border-radius: 0;
+}
+#map-content #btn-plus {
+  position: absolute;
+  right: 60px;
+  bottom: 40px;
+  display: table;
+  height: 50px;
+  width: 50px;
+  background-color: #931621;
+  border: 2px solid #000;
+  border-radius: 100%;
+  transition: all .2s linear;
+  text-decoration: none;
+}
+#map-content #btn-plus:hover {
+  -webkit-box-shadow: 0px 0px 61px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 61px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 61px -7px rgba(0, 0, 0, 0.75);
+}
+#map-content #btn-plus span {
+  display: table-cell;
+  font-size: 25px;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+}
+#section-form {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #931621;
+  color: #fff;
+}
+#section-form #form-local #formMap .row .box {
+  padding: 10px 50px;
+  float: none;
+  margin: auto;
+}
+#section-form #form-local #formMap .row .box input {
+  border-radius: 0;
+  border: 2px solid #000;
+  color: #000;
+  font-weight: bold;
+}
+#section-form #form-local #formMap .row #btnSend {
+  background-color: #931621;
+  color: #fff;
+  border-radius: 0;
+  border: 2px solid #000;
+}
+.section-header {
+  margin-bottom: 50px;
+}
 #success {
-    display: none;
+  display: none;
 }
 #error {
-    display:none;
+  display: none;
 }
-
 .block-center {
-    float:none !important;
-    margin-left:auto;
-    margin-right:auto;
+  float: none !important;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #000;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #000;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #000;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #000;
+}
+#acessibilidade {
+  display: none;
+}
+#inacessibilidade {
+  display: none;
+}
+#instituicao {
+  display: none;
+}

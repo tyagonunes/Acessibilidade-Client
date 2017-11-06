@@ -36,3 +36,26 @@
 		  </div>
 		</nav>
     </header>
+
+<main>
+    <div class="container">
+        <div class="lista">
+            <h1>Lista de locais</h1>
+
+                <!-- <div class="form-group">
+                    <input type="text" id="" class="input-field">
+                    <button class="btn">Enviar</button>
+                </div> -->
+
+            
+        </div>
+
+    </div>
+</main>
+
+    <script src="lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/less/dist/less.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
