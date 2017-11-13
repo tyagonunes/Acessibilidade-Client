@@ -64,3 +64,23 @@ app.delete('/locais/:id', function(req, res){
 	})
 
 });
+
+
+// ALTERAR
+
+app.put('/locais', function(req, res) {
+
+	var id = req.body._id;
+	var nome = req.body.nome;
+	var latitude = req.body.latitude;
+	var longitude = req.body.longitude;
+	var tipo = req.body.tipo;
+	var descricao = req.body.descricao;
+	var acessos = req.body.acessos;
+
+
+	localController.update(id, nome, latitude, longitude, tipo, descricao, acessos, function (resp) {
+		res.json(resp);
+	})
+
+});

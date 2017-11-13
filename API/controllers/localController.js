@@ -45,9 +45,40 @@ exports.delete = function (id, callback) {
 		else {
 			local.remove(function(error){
 				if (!error) {
-					callback({response: 'Local excluido com sucesso'});
+					resp = {success: true, data:{}, message:'Local excluido com sucesso'};
+					callback(resp);
 				}
 			})
 		}
+	});
+}
+
+
+
+exports.update = function (id, nome, latitude, longitude, tipo, descricao, acessos, callback) {
+
+	Local.findById(id, function(error, local) {
+		
+		if (nome) { local.nome = nome; }
+
+		if (latitude) { local.latitude = latitude; }
+
+		if (longitude) { local.longitude = longitude; }
+
+		if (tipo) { local.tipo = tipo; }
+
+		if (descricao) { local.descricao = descricao; }
+
+		if (acessos) { local.acessos = acessos; }
+
+		local.save(function(error, local) {
+			if(error) {
+				callback({error: "Não foi possivel alterar o local"});
+			} else {
+				resp = {success: true, data:local, message:'Editado com sucesso'};
+				callback(resp);
+			}
+		});
+
 	});
 }
