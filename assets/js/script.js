@@ -28,7 +28,18 @@ function geocode(e) {
 
 $("#btnSend").on('click', sendLocal);
 
-var acessos = [];
+var acessos = new Array();
+
+
+$('#add-plus-acesso').on('click', function(){
+    var plusAc = $('#plus-acesso').val();
+    if(plusAc != ''){
+        acessos.push(plusAc);
+        $('#plus-acesso').val('');
+    }
+
+})
+
 
 function sendLocal(event) {
     event.preventDefault();
@@ -40,8 +51,6 @@ function sendLocal(event) {
     var longitude = $('#fakeLng').val();
     var tipo = $('#select-tipo').val();
 
-
-    var acessos = new Array();
 
     switch (tipo) {
         case '1':
@@ -67,6 +76,14 @@ function sendLocal(event) {
         acessos.push($(this).val());
     });
 
+    $('#add-plus-acesso').on('click', function(){
+        var plusAc = $('#plus-acesso').val();
+
+        acessos.push(plusAc);
+
+        console.log(acessos);
+    })
+
     var Local = { Nome: nome, Latitude: latitude, Longitude: longitude, Tipo: tipo, Descricao: descricao, Acessos: acessos };
 
     console.log(acessos);
@@ -81,14 +98,18 @@ function sendLocal(event) {
         data: Local,
         success: function (data) {
             console.log(data);
-            $('#success').show();
-            $('#formMap')[0].reset();
+            if(data.success) {
+                swal('Obrigado', data.message,'success');
+                $('#formMap')[0].reset();
+            } else {
+                swal('Oops', "Algo deu errado, tente novamente",'error');
+            }
             
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.responseText);
             console.log(textStatus);
-            $('#error').show();
+            swal('Oops', "Algo deu errado, tente novamente",'error');
         }
     });
 };
@@ -164,4 +185,10 @@ function deletePLace() {
     .fail(function (xhr, textStatus, errorThrown) {
         alert("Erro de conexão", xhr.responseText);
     });
+}
+
+
+
+function openForm() {
+    $('#section-form').show();
 }

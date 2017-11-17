@@ -5,20 +5,24 @@ body {
   font-size: 16px;
 }
 #header .navbar {
-  background-color: #931621;
+  background-color: #1871ac;
   margin-bottom: 0;
   border-radius: 0;
   border: none;
 }
 #header .navbar .navbar-header .navbar-brand {
-  padding: 0;
-  margin: 10px;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 50px;
 }
-#header .navbar #menu {
-  margin-top: 5px;
+#header .navbar .navbar-header .navbar-brand:hover {
+  color: #cbe6f8;
 }
 #header .navbar #menu ul li a {
   color: #fff;
+}
+#header .navbar #menu ul li a:hover {
+  color: #cbe6f8;
 }
 #map-content {
   height: 650px;
@@ -38,8 +42,6 @@ body {
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 300px;
-  border: 2px solid #212121;
-  border-radius: 0;
 }
 #map-content #btn-plus {
   position: absolute;
@@ -48,7 +50,8 @@ body {
   display: table;
   height: 50px;
   width: 50px;
-  background-color: #931621;
+  border-radius: 20px;
+  background-color: #1871ac;
   border: 2px solid #000;
   border-radius: 100%;
   transition: all .2s linear;
@@ -69,8 +72,8 @@ body {
 #section-form {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #931621;
   color: #fff;
+  background-color: #1871ac;
 }
 #section-form #form-local #formMap .row .box {
   padding: 10px 50px;
@@ -79,24 +82,62 @@ body {
 }
 #section-form #form-local #formMap .row .box input {
   border-radius: 0;
-  border: 2px solid #000;
   color: #000;
   font-weight: bold;
 }
-#section-form #form-local #formMap .row #btnSend {
-  background-color: #931621;
+#section-form #form-local #formMap .row .box .add {
+  margin: 15px auto;
+}
+#section-form #form-local #formMap .row .box .add span {
+  background-color: #12547f;
   color: #fff;
-  border-radius: 0;
+  cursor: pointer;
+}
+#section-form #form-local #formMap .row .box .add span:hover {
+  background-color: #0c3652;
+}
+#section-form #form-local #formMap .row #btnSend {
+  background-color: #12547f;
+  color: #fff;
+  font-size: 18px;
+  padding: 15px 35px;
+  border-radius: 100px;
   border: 2px solid #000;
+}
+#section-form #form-local #formMap .row #btnSend:hover {
+  background-color: #0c3652;
+}
+#about {
+  background-color: #eee;
+  font-size: 18px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+#about .pontos {
+  margin-top: 50px;
+}
+#about .pontos .pontos-header {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+#about .pontos .content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#about .pontos .content .content-box {
+  background-color: #fff;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+}
+#about .pontos .content .content-box img {
+  margin-bottom: 15px;
 }
 .section-header {
   margin-bottom: 50px;
-}
-#success {
-  display: none;
-}
-#error {
-  display: none;
 }
 .block-center {
   float: none !important;

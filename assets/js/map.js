@@ -33,7 +33,7 @@ function initMap(modePin) {
         });
     })
     .fail(function (xhr, textStatus, errorThrown) {
-        alert("Erro de conexão", xhr.responseText);
+        swal('Oops', "Erro de conexão",'error');
     });
 
 
