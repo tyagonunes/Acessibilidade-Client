@@ -1,10 +1,12 @@
 body {
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: 'Barlow Condensed', arial, sans-serif;
   overflow-x: hidden;
   font-weight: normal;
   font-size: 16px;
 }
 #header .navbar {
+  font-family: 'Barlow Condensed', arial, sans-serif;
+  font-size: 18px;
   background-color: #1871ac;
   margin-bottom: 0;
   border-radius: 0;
@@ -52,7 +54,6 @@ body {
   width: 50px;
   border-radius: 20px;
   background-color: #1871ac;
-  border: 2px solid #000;
   border-radius: 100%;
   transition: all .2s linear;
   text-decoration: none;
@@ -70,6 +71,7 @@ body {
   color: #fff;
 }
 #section-form {
+  font-family: 'Barlow Condensed', arial, sans-serif;
   padding-top: 50px;
   padding-bottom: 50px;
   color: #fff;
@@ -97,17 +99,18 @@ body {
   background-color: #0c3652;
 }
 #section-form #form-local #formMap .row #btnSend {
-  background-color: #12547f;
   color: #fff;
   font-size: 18px;
   padding: 15px 35px;
   border-radius: 100px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
 }
 #section-form #form-local #formMap .row #btnSend:hover {
-  background-color: #0c3652;
+  background-color: #fff;
+  color: #1871ac;
 }
 #about {
+  font-family: 'Barlow Condensed', arial, sans-serif;
   background-color: #eee;
   font-size: 18px;
   padding-bottom: 50px;

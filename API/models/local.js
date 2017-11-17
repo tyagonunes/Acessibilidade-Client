@@ -7,6 +7,7 @@ var localSchema = new Schema({
 	longitude: Number,
 	tipo: String,
 	descricao: String,
+	criacao: Date,
 	acessos: [{type: String}]
 
 });

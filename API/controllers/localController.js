@@ -10,6 +10,7 @@ exports.save = function (nome, latitude, longitude, tipo, descricao, acessos, ca
 		'longitude': longitude,
 		'tipo': tipo,
 		'descricao': descricao,
+		'criacao': new Date(),
 		'acessos': acessos
 
 	}).save(function(error, local) {

@@ -27,8 +27,11 @@ function initMap(modePin) {
     })
     .done(function (response) {
         console.log(response);
+        moment.locale('pt-br');
+        //var time = moment(response.criacao).fromNow();
         var locais = response.data;
         $.each(locais, function (index) {
+            locais[index].criacao = moment(locais[index].criacao).fromNow();
             addMarker(locais[index]);
         });
     })
@@ -74,7 +77,8 @@ function initMap(modePin) {
                 "<p><strong>" + props.nome + "</strong></p>" + 
                 "<p><strong>O que há aqui?</strong><p>" +
                 cont +
-                "<p><strong>Mais detalhes: </strong>" + props.descricao + "</p>"
+                "<p><strong>Mais detalhes: </strong>" + props.descricao + "</p>" +
+                "<p><strong>Criado há: </strong>" + props.criacao + "</p>"
         });
 
         marker.addListener('click', function () {
