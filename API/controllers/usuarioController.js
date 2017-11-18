@@ -45,7 +45,7 @@ exports.list = function(token, callback) {
         if(erro) {
             callback('Deu erro')
         }else if (usuario) {
-            callback(usuario.nome);
+            callback({'nome':usuario.nome});
         }else {
             callback('Usuário não encontrado');
         }

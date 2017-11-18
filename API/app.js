@@ -3,13 +3,15 @@ var db =  require('./config/db_config');
 var Local = require('./models/local');
 var localController = require('./controllers/localController');
 
+var usuario = require('./routes/usuarioRouter');
+
 
 // LISTAR LOCAIS
 app.get('/', function(req, res) {
 	res.end('Bem vindo a API');	
 });
 
-
+app.use('/usuarios', usuario);
 
 app.get('/locais', function(req, res) {
 	localController.list(function(resp){

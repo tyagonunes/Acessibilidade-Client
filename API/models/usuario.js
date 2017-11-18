@@ -10,7 +10,7 @@ var UsuarioSchema = new Schema({
 
 });
 
-UsuarioSchema.method.gerarToken = function(nome, senha) {
+UsuarioSchema.methods.gerarToken = function(nome, senha) {
     return jwt.sign({'nome': nome, 'senha': senha}, 'segredo')
 }
 
