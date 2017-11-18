@@ -192,3 +192,78 @@ function deletePLace() {
 function openForm() {
     $('#section-form').show();
 }
+
+
+function cadastrar(e) {
+    e.preventDefault();
+
+    var name = $('#login-name').val();
+    var password = $('#login-password').val();
+
+    console.log(name + password);
+
+    var url = "http://localhost:5000/usuarios/cadastrar";
+    var usuario = { nome: name, senha: password };
+    
+    $.ajax({
+
+        url: url,
+        type: 'POST',
+        datatype: "json",
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        data: usuario,
+        success: function (data) {
+            console.log(data);
+            // if(data.success) {
+            //     swal('Obrigado', data.message,'success');
+            //     $('#formMap')[0].reset();
+            // } else {
+            //     swal('Oops', "Algo deu errado, tente novamente",'error');
+            // }
+            
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.responseText);
+            console.log(textStatus);
+            swal('Oops', "Algo deu errado, tente novamente",'error');
+        }
+    });
+}
+
+
+
+function logar(e) {
+    e.preventDefault();
+
+    var name = $('#log-name').val();
+    var password = $('#log-password').val();
+
+    console.log(name + password);
+
+    var url = "http://localhost:5000/usuarios/login";
+    var usuario = { nome: name, senha: password };
+    
+    $.ajax({
+
+        url: url,
+        type: 'POST',
+        datatype: "json",
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        data: usuario,
+        success: function (data) {
+            console.log(data);
+            // if(data.success) {
+            //     swal('Obrigado', data.message,'success');
+            //     $('#formMap')[0].reset();
+            // } else {
+            //     swal('Oops', "Algo deu errado, tente novamente",'error');
+            // }
+            
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.responseText);
+            console.log(textStatus);
+            swal('Oops', "Algo deu errado, tente novamente",'error');
+        }
+    });
+}
