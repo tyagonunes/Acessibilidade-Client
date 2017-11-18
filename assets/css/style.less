@@ -23,13 +23,20 @@ body {
         border: none;
         
         .navbar-header {
-            .navbar-brand {
+            .logo {
                     color: #fff;
+                    display: block;
+                    margin-top: 10px;
                     font-size: 20px;
-                    margin-right: 50px;
+                    img {
+                        margin-right: 10px;
+                        margin-top: -3px;
+                        width: 30px;
+                    }
 
                 &:hover {
                     color: lighten(@secondary-color, 50%);
+                    text-decoration: none;
                 }
             }
         }
@@ -37,11 +44,23 @@ body {
         #menu {
             ul {
                 li {
+                    margin-right: 15px;
                     a {
                         color: #fff;
 
+                        i {
+                            color: #fff;
+                            font-size: 15px;
+                            margin-right: 5px;
+                            margin-top: -5px;
+                        }
+
                         &:hover {
                             color: lighten(@secondary-color, 50%);
+
+                            i {
+                                color: lighten(@secondary-color, 50%);
+                            }
                         }
                     }
                 }

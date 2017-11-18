@@ -1,4 +1,35 @@
 
+$( document ).ready(function() {
+    var token = localStorage.getItem("userToken");
+
+    if (token != null) {
+        $('#link-cadastro').hide();
+        $('#link-login').hide();
+        
+        var url = "http://localhost:5000/usuarios/listar";
+        
+        $.ajax({
+            url: url,
+            type: 'GET',
+            headers: {
+                'authorization': token,
+            },
+            datatype: "json",
+            success: function (data) {
+                $('#user-logged').html(data.nome);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+            }
+        });
+
+    }else {
+        $('#link-logout').hide();
+        $('#section-form').hide();
+        $('#label-user-logged').hide();
+    }
+});
+
+
 
 
 function geocode(e) {
@@ -170,28 +201,15 @@ $( "#select-tipo" ).change(function() {
 });
 
 
-
-function deletePLace() {
-
-    var id = $()
-    
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:5000/locais?id='+id
-    })
-    .done(function (response) {
-        console.log(response);
-    })
-    .fail(function (xhr, textStatus, errorThrown) {
-        alert("Erro de conexão", xhr.responseText);
-    });
+function checkAddLocal() {
+    var token = localStorage.getItem("userToken");
+    if(token == null) {
+        swal('Oops', "Cadastre-se ou entre na aplicação para cadastrar um novo local",'error');
+    }else {
+        
+    }
 }
 
-
-
-function openForm() {
-    $('#section-form').show();
-}
 
 
 function cadastrar(e) {
@@ -214,12 +232,12 @@ function cadastrar(e) {
         data: usuario,
         success: function (data) {
             console.log(data);
-            // if(data.success) {
-            //     swal('Obrigado', data.message,'success');
-            //     $('#formMap')[0].reset();
-            // } else {
-            //     swal('Oops', "Algo deu errado, tente novamente",'error');
-            // }
+            if(data.token != null) {
+                $('#myModal').modal('hide');
+                swal('Cadastrado com sucesso', 'Entre com os seus dados','success');
+            } else {
+                swal('Oops', data ,'error');
+            }
             
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -230,7 +248,10 @@ function cadastrar(e) {
     });
 }
 
-
+function logout() {
+    localStorage.removeItem("userToken");
+    window.location.reload();
+}
 
 function logar(e) {
     e.preventDefault();
@@ -252,12 +273,12 @@ function logar(e) {
         data: usuario,
         success: function (data) {
             console.log(data);
-            // if(data.success) {
-            //     swal('Obrigado', data.message,'success');
-            //     $('#formMap')[0].reset();
-            // } else {
-            //     swal('Oops', "Algo deu errado, tente novamente",'error');
-            // }
+
+            if(data.success) {
+                localStorage.setItem('userToken', data.data);
+                window.location.reload();
+            } else {
+            }
             
         },
         error: function (xhr, textStatus, errorThrown) {

@@ -29,7 +29,8 @@ exports.login = function(nome, senha, callback) {
             callback('Deu erro')
         }else if (usuario) {
             if(usuario.validarSenha(senha)) {
-                callback(usuario.token);    
+                resp = {success: true, data:usuario.token, message:'Usuário encontrado'};
+                callback(resp);    
             }else {
                 callback('Senha incorreta')
             }

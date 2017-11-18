@@ -12,18 +12,37 @@ body {
   border-radius: 0;
   border: none;
 }
-#header .navbar .navbar-header .navbar-brand {
+#header .navbar .navbar-header .logo {
   color: #fff;
+  display: block;
+  margin-top: 10px;
   font-size: 20px;
-  margin-right: 50px;
 }
-#header .navbar .navbar-header .navbar-brand:hover {
+#header .navbar .navbar-header .logo img {
+  margin-right: 10px;
+  margin-top: -3px;
+  width: 30px;
+}
+#header .navbar .navbar-header .logo:hover {
   color: #cbe6f8;
+  text-decoration: none;
+}
+#header .navbar #menu ul li {
+  margin-right: 15px;
 }
 #header .navbar #menu ul li a {
   color: #fff;
 }
+#header .navbar #menu ul li a i {
+  color: #fff;
+  font-size: 15px;
+  margin-right: 5px;
+  margin-top: -5px;
+}
 #header .navbar #menu ul li a:hover {
+  color: #cbe6f8;
+}
+#header .navbar #menu ul li a:hover i {
   color: #cbe6f8;
 }
 #map-content {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet/less" type="text/css" href="assets/css/style.less"/>
+    <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="node_modules/sweetalert2/dist/sweetalert2.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
@@ -23,7 +24,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#"> <span class="logo"></span>Mapa da acessibilidade</a>
+		      <a class="logo" href="#"> <img src="assets/img/wheelchair.png" alt=""></span>Mapa da acessibilidade</a>
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="menu">
@@ -33,10 +34,13 @@
 		      </ul> -->
 		     
 		      <ul class="nav navbar-nav navbar-right">
-                <li><a href="#section-form" class="anchor" onclick="openForm()">Contribua com um local</a></li>
-                <li><a id="pin" href="#">Sobre</a></li>
-                <li><a href="" data-toggle="modal" data-target="#myModal">Cadastrar</a></li>
-                <li><a href="" data-toggle="modal" data-target="#modalLogin">Entrar</a></li>
+                <li><a href="#section-form" class="anchor" id="link-add-local" onclick="checkAddLocal()"><i class="fa fa-plus-circle"></i>Contribua com um local</a></li>
+                <li><a id="legenda" href="#"><i class="fa fa-align-justify"></i>Legenda</a></li>
+                <li><a href="#about" id="about-link" class="anchor"><i class="fa fa-question-circle"></i>Sobre</a></li>
+                <li><a href="#" data-toggle="modal" id="link-cadastro" data-target="#myModal"><i class="fa fa-user"></i>Cadastrar-se</a></li>
+                <li><a href="#" data-toggle="modal" id="link-login" data-target="#modalLogin"><i class="fa fa-sign-in"></i>Entrar</a></li>
+                <li><a href="javascript:;" id="label-user-logged"><i class="fa fa-user"></i><span id="user-logged"></span></a></li>
+                <li><a href="#" id="link-logout" onclick="logout()"><i class="fa fa-sign-out"></i></a></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -47,7 +51,7 @@
         <section id="map-content">
             <div id="map"></div>
             <input type="text" id="location-input" class="form-control">
-            <a id="btn-plus" class="anchor" onclick="openForm()" href="#section-form"><span>+</span></a>
+            <!-- <a id="btn-plus" class="anchor" onclick="openForm()" href="#section-form"><span>+</span></a> -->
         </section>
         <section id="section-form">
             <div class="container">
@@ -234,11 +238,11 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                      <label for="email">Nome:</label>
+                      <label for="email">Nome de usuário:</label>
                       <input type="text" class="form-control" id="login-name">
                     </div>
                     <div class="form-group">
-                      <label for="pwd">Password:</label>
+                      <label for="pwd">Senha:</label>
                       <input type="password" class="form-control" id="login-password">
                     </div>
                     <!-- <div class="checkbox">
@@ -262,11 +266,11 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                      <label for="email">Nome:</label>
+                      <label for="email">Nome de usuário:</label>
                       <input type="text" class="form-control" id="log-name">
                     </div>
                     <div class="form-group">
-                      <label for="pwd">Password:</label>
+                      <label for="pwd">Senha:</label>
                       <input type="password" class="form-control" id="log-password">
                     </div>
                     <!-- <div class="checkbox">
