@@ -39,4 +39,11 @@ router.get('/listar',pegarToken, function(req, res){
     });
 });
 
+
+router.get('/listarAll', function(req, res){
+    usuarioCotroller.listAll(function(resp) {
+        res.json(resp);
+    });
+});
+
 module.exports = router;

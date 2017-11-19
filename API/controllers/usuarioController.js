@@ -11,6 +11,7 @@ exports.save = function (nome, senha, callback) {
             novoUsuario.nome = nome;
             novoUsuario.senha = novoUsuario.gerarSenha(senha);
             novoUsuario.token = novoUsuario.gerarToken(nome, senha);
+            novoUsuario.criacao = new Date();
             novoUsuario.save(function(erro, usuario){
                 if(erro) {
                     callback('Erro');
@@ -51,4 +52,17 @@ exports.list = function(token, callback) {
             callback('Usuário não encontrado');
         }
     });
+}
+
+
+exports.listAll = function (callback) {
+	Usuario.find({}, function(error, usuarios){
+		if(error) {
+			callback({error: 'Não foi possivel salvar usuário'});
+		}
+		else {
+			resp = {success: true, data:usuarios, message:'Lista de usuarios'};
+			callback(resp)
+		}
+	});
 }
