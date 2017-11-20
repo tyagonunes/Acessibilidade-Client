@@ -46,4 +46,12 @@ router.get('/listarAll', function(req, res){
     });
 });
 
+router.delete('/deleteUser/:id', function(req, res){
+    var id = req.params['id'];
+
+    usuarioCotroller.deleteUser(function(id, resp) {
+        res.json(resp);
+    });
+});
+
 module.exports = router;

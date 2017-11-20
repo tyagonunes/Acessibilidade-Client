@@ -57,14 +57,11 @@ app.post('/locais', function(req, res){
 // DELETAR LOCAL
 
 app.delete('/locais/:id', function(req, res){
-
 	var id = req.params['id'];
 	
-
 	localController.delete(id, function (resp) {
 		res.json(resp);
 	})
-
 });
 
 

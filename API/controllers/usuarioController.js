@@ -58,11 +58,26 @@ exports.list = function(token, callback) {
 exports.listAll = function (callback) {
 	Usuario.find({}, function(error, usuarios){
 		if(error) {
-			callback({error: 'Não foi possivel salvar usuário'});
+			callback({success: false, data:[] ,message: 'Não foi possivel salvar usuário'});
 		}
 		else {
 			resp = {success: true, data:usuarios, message:'Lista de usuarios'};
 			callback(resp)
 		}
 	});
+}
+
+exports.deleteUser = function (id, callback) {
+    Usuario.findById(id, function(error, usuario){
+        if(error) {
+            //resp1 = {success: false, data:{}, message:'Não foi possivel excluir usuário'};
+			callback({error:'Não foi possivel excluir usuário'});
+		}else {
+            usuario.remove(function(error){
+				if (!error) {
+					callback({success: true, data:{}, message:'Usuário excluido com sucesso'});
+				}
+			});
+        }
+    });
 }

@@ -35,7 +35,7 @@
 		     
 		      <ul class="nav navbar-nav navbar-right">
                 <li><a href="#section-form" class="anchor" id="link-add-local" onclick="checkAddLocal()"><i class="fa fa-plus-circle"></i>Contribua com um local</a></li>
-                <li><a id="legenda" href="#"><i class="fa fa-align-justify"></i>Legenda</a></li>
+                <li><a id="legenda" onclick="showLegend()" href="#"><i class="fa fa-align-justify"></i>Legenda</a></li>
                 <li><a href="#about" id="about-link" class="anchor"><i class="fa fa-question-circle"></i>Sobre</a></li>
                 <li><a href="#" data-toggle="modal" id="link-cadastro" data-target="#myModal"><i class="fa fa-user"></i>Cadastrar-se</a></li>
                 <li><a href="#" data-toggle="modal" id="link-login" data-target="#modalLogin"><i class="fa fa-sign-in"></i>Entrar</a></li>
@@ -51,6 +51,13 @@
         <section id="map-content">
             <div id="map"></div>
             <input type="text" id="location-input" class="form-control">
+            <div class="legenda">
+                <ul>
+                    <li><span><img src="assets/img/marker-acesso.png" alt="">Relatado facilidade de acesso</span></li>
+                    <li><span><img src="assets/img/marker-inacesso.png" alt="">Relatado dificuldade de acesso</span></li>
+                    <li><span><img src="assets/img/marker3.png" alt="">Instituição de apoio a deficientes</span></li>
+                </ul>
+            </div>
             <!-- <a id="btn-plus" class="anchor" onclick="openForm()" href="#section-form"><span>+</span></a> -->
         </section>
         <section id="section-form">
@@ -198,9 +205,14 @@
                         têm o direito de estar nos mesmos locais em que nós todos estamos.</p>
 
                     <p>O mapa da acessibilidade é um projeto que tem como objetivo ajudar pessoas com deficiência
-                         a planejarem seus trajetos pela cidade através dos pontos marcados no mapa.</p>
+                         a planejarem seus trajetos pela cidade através dos pontos marcados no mapa. Os marcadores estão 
+                         distribuidos em 3 categorias: Locais que apresentam dificuldade de acesso para pessoas defientes, 
+                         locais que possuem estrutura que facilitam o acesso de deficientes e instituições de apoio a deficientes.</p>
+                    <p>O mapa é colaborativo e todos os cidadãos podem deixar sua contribuição apontando lugares da cidade e mostrando suas caracteristicas de acessibilidade para pessoas deficientes.</p>
                     
-                    <div class="row pontos">
+
+                        
+                    <!-- <div class="row pontos">
                         <p class="pontos-header">Legenda dos pontos no mapa</p>
                         <div class="col-md-4 content">
                             <div class="content-box">
@@ -220,7 +232,7 @@
                                 <p>Instituição de referência para ajuda a defientes</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -229,7 +241,7 @@
 
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -257,7 +269,7 @@
 
 
       <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -273,9 +285,6 @@
                       <label for="pwd">Senha:</label>
                       <input type="password" class="form-control" id="log-password">
                     </div>
-                    <!-- <div class="checkbox">
-                      <label><input type="checkbox"> Remember me</label>
-                    </div> -->
                     <button type="submit" class="btn btn-default" onclick="logar(event)">Entrar</button>
                   </form>
             </div>

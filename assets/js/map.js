@@ -12,13 +12,6 @@ function initMap(modePin) {
         zoom: 12
     });
 
-    var marker = new google.maps.Marker({
-        position: {
-            lat: -3.786407,
-            lng: -3.786407
-        },
-        map: map
-    });
 
 
     $.ajax({
@@ -92,13 +85,13 @@ function initMap(modePin) {
 
      //This event listener calls addMarker() when the map is clicked.
     
-     if (modePin) {
+    //  if (modePin) {
 
-        google.maps.event.addListener(map, 'click', function (e) {
-            placeMarker(e.latLng, map);
-            console.log(e.latLng.lat());
-        });
-    }
+    //     google.maps.event.addListener(map, 'click', function (e) {
+    //         placeMarker(e.latLng, map);
+    //         console.log(e.latLng.lat());
+    //     });
+    // }
 
     function placeMarker(position, map) {
         var marker = new google.maps.Marker({

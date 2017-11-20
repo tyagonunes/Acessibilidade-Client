@@ -210,6 +210,9 @@ function checkAddLocal() {
     }
 }
 
+function showLegend () {
+    $('.legenda').toggleClass("displayLegend");
+}
 
 
 function cadastrar(e) {
