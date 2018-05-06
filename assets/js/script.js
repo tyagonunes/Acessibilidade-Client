@@ -117,7 +117,7 @@ function sendLocal(event) {
 
     var Local = { Nome: nome, Latitude: latitude, Longitude: longitude, Tipo: tipo, Descricao: descricao, Acessos: acessos };
 
-    console.log(acessos);
+    console.log(Local);
     var url = "http://localhost:5000/Locais";
 
     $.ajax({

@@ -5,6 +5,7 @@
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/less/dist/less.min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
     <script src="assets/js/map.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
